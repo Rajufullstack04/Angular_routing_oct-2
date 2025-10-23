@@ -1,0 +1,58 @@
+<div class="containner" >
+    <div class="col-12" >
+        <h1>Coustmors page</h1>
+        <table class="table table-bordered mb-4" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                   <th>Name</th>
+                   <th>Age</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor="let coustmor of coustmors">
+                <!-- <td>{{coustmor.coustmorId}} </td> -->
+         <td> 
+            <!------handal  based on the params---------->
+            <!-- <a [routerLink]="['/Login-list',coustmor.coustmorId]">{{coustmor.coustmorId}}</a> -->
+<!--          
+            <a class="btn btn-primary" 
+         (click)="evntNavigation(coustmor.coustmorId)">
+         {{coustmor.coustmorId}}</a> -->
+
+            <!------handal based on the quary params-------------->
+
+          <!-- <a [routerLink]="['/Login-list']" 
+          [queryParams]="{'ID':coustmor.coustmorId}">
+          {{coustmor.coustmorId}}</a> -->
+
+<!-- 
+          <a class="btn btn-primary" 
+         (click)="evntNavigation(coustmor.coustmorId)">
+         {{coustmor.coustmorId}}</a>  -->
+
+         <!----------- handal  based on the Fragment-------------------------------  -->
+
+         <!-- <a [routerLink]="['/Login-list']" 
+          fragment="{{coustmor.coustmorId}}">
+          {{coustmor.coustmorId}}</a>  
+  -->
+         <a class="btn btn-primary" 
+         (click)="evntNavigation(coustmor.coustmorId)">
+         {{coustmor.coustmorId}}</a> 
+
+
+          
+        </td>
+
+                <td>{{coustmor.coustmorName}} </td>
+                <td>{{coustmor.age}} </td>
+                <td>{{coustmor.coustmorlocation}} </td>
+
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+
