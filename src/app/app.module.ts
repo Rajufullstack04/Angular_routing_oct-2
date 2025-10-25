@@ -10,7 +10,9 @@ import { CoutmorsComponent } from './coutmors/coutmors.component';
 import { CoustmorsDitaliesComponent } from './coutmors/coustmors-ditalies/coustmors-ditalies.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { authGuard } from './auth.guard';
-
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { exitGuard } from './exit.guard';
 
 
 const routes:Routes =[
@@ -31,12 +33,17 @@ const routes:Routes =[
     path:'Coustmars',
     component : CoutmorsComponent,
   },
+   {
+    path:'login',
+    component : LoginComponent,
+  },
   // handal  based on the params ----------------------------------
  
   {
     path:'costmor-list/:coustmorId',      
     component : CoustmorsDitaliesComponent,
-    canActivate:[authGuard]
+    canActivate:[authGuard],
+    canDeactivate:[exitGuard]
 
   },
   // handal  based on the quearyparams ------- handal  based on the fragment also-------------
@@ -60,10 +67,11 @@ const routes:Routes =[
     AboutusComponent,
     CoutmorsComponent,
     CoustmorsDitaliesComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(routes),
+    BrowserModule,FormsModule, RouterModule.forRoot(routes),
     AppRoutingModule
   ],
   providers: [],

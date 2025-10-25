@@ -9,12 +9,12 @@ import { CoustmorServices } from 'src/app/coustmor.services';
   styleUrls: ['./coustmors-ditalies.component.css']
 })
 export class CoustmorsDitaliesComponent implements OnInit{
-  selectedID: { coustmorId: number; coustmorName: string; age:number; coustmorlocation: string; }[] | undefined;
-  coustmorInfo: any;
+  
 constructor(private ARouter:ActivatedRoute,public coustmorservices:CoustmorServices){
 
 }
-
+SelectedCustoemrs :any;
+  coustmorInfo: any;
 
   ngOnInit(): void {
      this.ARouter.params.subscribe((result)=>{
@@ -24,11 +24,12 @@ constructor(private ARouter:ActivatedRoute,public coustmorservices:CoustmorServi
 
 
       let coustmorslist=this.coustmorservices.getcoustmorslist();
-    
-      this.selectedID=coustmorslist.filter((Custmer)=>{
+    // setTimeout(()=>{
+      this.SelectedCustoemrs=coustmorslist.filter((Custmer)=>{
         return Custmer.coustmorId == Number(result['coustmorId']);
 
       });
+      // },1000);
 
     })
   // this.ARouter.queryParams.subscribe((result)=>{
